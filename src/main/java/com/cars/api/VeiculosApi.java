@@ -54,9 +54,10 @@ public class VeiculosApi {
             
             Optional<VeiculoModel> veiculo = veiculoRepository.findById(id);
 
-            return new ResponseEntity(veiculo.get(), HttpStatus.OK);
+            return new ResponseEntity(veiculo, HttpStatus.OK);
 
         }catch(Exception e){
+            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -109,7 +110,7 @@ public class VeiculosApi {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteVeiculo(@PathVariable int id, @RequestBody Veiculo veiculo) {
+    public ResponseEntity<HttpStatus> deleteVeiculo(@PathVariable int id) {
         try {
 			veiculoRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
