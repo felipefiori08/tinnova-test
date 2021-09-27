@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 
-import com.cars.entity.Veiculo;
 import com.cars.model.VeiculoModel;
 import com.cars.repository.VeiculoRepository;
 
@@ -75,7 +74,7 @@ public class VeiculosApi {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VeiculoModel>  atualizarVeiculo(@PathVariable int id, @RequestBody Veiculo veiculo) {
+    public ResponseEntity<VeiculoModel>  atualizarVeiculo(@PathVariable int id, @RequestBody VeiculoModel veiculo) {
         Optional<VeiculoModel> veiculoData = veiculoRepository.findById(id);
 
         if(veiculoData.isPresent()){
@@ -95,7 +94,7 @@ public class VeiculosApi {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<VeiculoModel>  atualizarVeiculoResumido(@PathVariable int id, @RequestBody Veiculo veiculo) {
+    public ResponseEntity<VeiculoModel>  atualizarVeiculoResumido(@PathVariable int id, @RequestBody VeiculoModel veiculo) {
         Optional<VeiculoModel> veiculoData = veiculoRepository.findById(id);
 
         if(veiculoData.isPresent()){
